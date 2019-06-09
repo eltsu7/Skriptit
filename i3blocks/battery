@@ -1,0 +1,8 @@
+#!/bin/sh
+
+up=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0)
+
+perc=$(echo "$up" | grep "percent" | awk '{ print $2 }')
+state=$(echo "$up" | grep "state" | awk '{ print $2 }')
+
+echo "$perc $state"
